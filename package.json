@@ -1,0 +1,24 @@
+{
+  "name": "ui-3",
+  "version": "1.0.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "module": "./src/index.ts",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0-rc.3",
+    "@storybook/addon-interactions": "^7.0.0-rc.3",
+    "@storybook/addon-links": "^7.0.0-rc.3",
+    "@storybook/blocks": "^7.0.0-rc.3",
+    "@storybook/testing-library": "^0.0.14-next.1",
+    "@storybook/vue3": "^7.0.0-rc.3",
+    "@storybook/vue3-vite": "^7.0.0-rc.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.0-rc.3"
+  },
+  "peerDependencies": {},
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  }
+}
