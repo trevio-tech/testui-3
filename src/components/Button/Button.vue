@@ -1,3 +1,3 @@
 <template>
-  <button style="background-color: #0b2e13">КНОПКА</button>
+  <button class="bg-blue-200 p-2">КНОПКА</button>
 </template>
