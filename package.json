@@ -4,6 +4,7 @@
   "license": "MIT",
   "sideEffects": false,
   "module": "./src/index.ts",
+  "style": "./src/assets/style.css",
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.0-rc.3",
     "@storybook/addon-interactions": "^7.0.0-rc.3",
@@ -22,6 +23,7 @@
   "peerDependencies": {},
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "dev": "npx tailwindcss -i ./src/assets/tailwind.css -o ./src/assets/style.css --watch --minify"
   }
 }
