@@ -4,6 +4,7 @@ export * from './assets/style.css?inline'
 export { default as useChat } from './chats/composables/useChat.ts'
 
 // COMPONENTS
+export { default as Alert } from './components/Alert/Alert.vue'
 export { default as Button } from './components/Button/Button.vue'
 export { default as ImageViewer } from './components/ImageViewer/ImageViewer.vue'
 export { default as useShotEditor } from './components/Shots/useShotEditor'
