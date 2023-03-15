@@ -18,4 +18,4 @@ export { default as IsLoggedIn } from './components/IsLoggedIn.vue'
 export { default as RippleDirective } from './directives/ripple'
 
 // WEBSOCKETS
-export { default as Echo } from './echo'
+export { default as websockets } from './websockets'

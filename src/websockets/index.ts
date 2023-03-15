@@ -3,13 +3,13 @@ import Pusher from 'pusher-js'
 import { ApolloLink, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core'
 import { createLighthouseSubscriptionLink } from './subscription-link'
 
-export default async (nuxtApp) => {
+export default (nuxtApp) => {
   window.Pusher = Pusher
 
   const GRAPHQL_URL = nuxtApp.$config.public.GRAPHQL_URL
   const WEBSOCKETS_HOST = nuxtApp.$config.public.WEBSOCKETS_HOST
 
-  const echo = await new Echo({
+  const echo = new Echo({
     broadcaster: 'pusher',
     key: 'soketi',
     wsHost: WEBSOCKETS_HOST || '127.0.0.1',
