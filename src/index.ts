@@ -13,3 +13,9 @@ export { useSubscriptionsStore } from './components/Subscriptions/store'
 export { default as TipTap } from './components/TipTap/TipTap.vue'
 export { default as Upload } from './components/Upload/Upload.vue'
 export { default as IsLoggedIn } from './components/IsLoggedIn.vue'
+
+// DIRECTIVES
+export { default as RippleDirective } from './directives/ripple'
+
+// WEBSOCKETS
+export { default as Echo } from './echo'
