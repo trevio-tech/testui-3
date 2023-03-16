@@ -27,7 +27,7 @@ const isSubscribed = ref(
 )
 const isLoading = ref(false)
 
-const onSubmit = async (modelType: string, modelId: string|number) => {
+const onSubmit = async () => {
   if (isLoading.value) {
     return
   }
