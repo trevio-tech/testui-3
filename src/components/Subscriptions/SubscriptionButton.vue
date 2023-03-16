@@ -1,11 +1,15 @@
 <template>
-  <slot :onSubmit="onSubmit" :isSubscribed="isSubscribed" :isLoading="isLoading" />
+  <IsLoggedIn>
+    <slot :onSubmit="onSubmit" :isSubscribed="isSubscribed" :isLoading="isLoading" />
+  </IsLoggedIn>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 import useQuery from '../../composables/useQuery'
+import IsLoggedIn from '../IsLoggedIn.vue'
 import { useSubscriptionsStore } from './store'
+import { toast } from 'vue3-toastify'
 
 const props = defineProps({
   modelType: {
@@ -50,8 +54,10 @@ const onSubmit = async (modelType: string, modelId: string|number) => {
     } else {
       delete store.subscriptions[props.modelType + props.modelId]
     }
-  } catch (error) {
-    console.log(error)
+  } catch (errors) {
+    toast(errors[0].extensions.debugMessage, {
+      type: 'error'
+    })
   } finally {
     isLoading.value = false
   }
