@@ -14,6 +14,10 @@ export { default as TipTap } from './components/TipTap/TipTap.vue'
 export { default as Upload } from './components/Upload/Upload.vue'
 export { default as IsLoggedIn } from './components/IsLoggedIn.vue'
 
+// COMPOSABLES
+export { default as useOverlay } from './composables/useOverlay.ts'
+export { default as useQuery } from './composables/useQuery.ts'
+
 // DIRECTIVES
 export { default as RippleDirective } from './directives/ripple'
 

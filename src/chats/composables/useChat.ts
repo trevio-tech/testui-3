@@ -1,4 +1,4 @@
-import { useQuery } from '#imports'
+import useQuery from '../../composables/useQuery'
 import { groupBy } from 'lodash-es'
 import { ref } from 'vue'
 

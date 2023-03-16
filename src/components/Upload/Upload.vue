@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { useQuery } from '#imports'
+import useQuery from '../../composables/useQuery'
 
 const emit = defineEmits([
   'start',

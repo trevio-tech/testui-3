@@ -3,7 +3,7 @@ import './ShotEditor/fabric.brushes.min'
 import { fabric } from 'fabric'
 import { onMounted, onBeforeMount, ref } from 'vue'
 import store from './ShotEditor/store'
-import { useQuery } from '#imports'
+import useQuery from '../../composables/useQuery'
 
 import {
   setBackgroundColor,

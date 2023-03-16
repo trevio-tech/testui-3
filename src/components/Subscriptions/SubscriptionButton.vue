@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useQuery } from '#imports'
+import useQuery from '../../composables/useQuery'
 import { useSubscriptionsStore } from './store'
 
 const props = defineProps({
