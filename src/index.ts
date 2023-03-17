@@ -1,5 +1,3 @@
-export * from './assets/style.css?inline'
-
 // Chats
 export { default as useChat } from './chats/composables/useChat.ts'
 
