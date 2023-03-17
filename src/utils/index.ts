@@ -1,0 +1,1 @@
+export { default as shadeColor } from './shade-color'

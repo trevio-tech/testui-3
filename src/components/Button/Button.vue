@@ -7,6 +7,7 @@
     @click="onClick($event)"
   >
     <Loader v-if="loading" />
+    <slot v-if="hasPrependSlot" name="prepend"></slot>
     <span :style="{visibility: loading ? 'hidden' : 'visible'}"><slot></slot></span>
     <slot v-if="hasAppendSlot" name="append"></slot>
   </button>
@@ -53,6 +54,9 @@ export default {
     }
   },
   computed: {
+    hasPrependSlot() {
+      return !!this.$slots['prepend'];
+    },
     hasAppendSlot() {
       return !!this.$slots['append'];
     },
@@ -67,7 +71,7 @@ export default {
       return {
         'relative font-medium rounded-lg text-sm px-5 h-[42px] focus:outline-none disabled:opacity-75 transition duration-100 ease-in-out"': true,
         [variants[this.variant]]: true,
-        'flex items-center space-x-1': this.hasAppendSlot
+        'flex items-center space-x-2': this.hasAppendSlot || this.hasPrependSlot
       }
     },
   },

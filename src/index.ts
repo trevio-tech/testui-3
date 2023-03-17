@@ -20,5 +20,8 @@ export { default as useQuery } from './composables/useQuery.ts'
 // DIRECTIVES
 export { default as RippleDirective } from './directives/ripple'
 
+// UTILS
+export * from './utils'
+
 // WEBSOCKETS
 export { default as websockets } from './websockets'
