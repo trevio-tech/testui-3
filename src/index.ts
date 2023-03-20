@@ -7,6 +7,11 @@ export { default as useChat } from './chats/composables/useChat.ts'
 export { default as Alert } from './components/Alert/Alert.vue'
 export { default as Avatar } from './components/Avatar/Avatar.vue'
 export { default as Button } from './components/Button/Button.vue'
+
+// Dropdown
+export { default as Dropdown } from './components/Dropdown/Dropdown.vue'
+export { default as DropdownItem } from './components/Dropdown/DropdownItem.vue'
+
 export { default as ImageViewer } from './components/ImageViewer/ImageViewer.vue'
 export { default as InputTags } from './components/InputTags/InputTags.vue'
 export { default as Like } from './components/Like/Like.vue'
