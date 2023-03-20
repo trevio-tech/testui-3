@@ -1,16 +1,17 @@
 <script setup>
 import { computed } from 'vue'
-import { useNuxtApp } from 'nuxt/app'
+import useOverlay from './useOverlay.ts'
 
-const count = computed(() => $overlay.stack.length)
-const { $overlay } = useNuxtApp()
+const overlay = useOverlay()
+
+const count = computed(() => overlay.stack.length)
 
 const onHide = () => {
-  if (typeof $overlay.stack[0]?.onHide === 'function') {
-    $overlay.stack[0].onHide()
+  if (typeof overlay.stack[0]?.onHide === 'function') {
+    overlay.stack[0].onHide()
   }
 
-  $overlay.hide()
+  overlay.hide()
 }
 </script>
 
@@ -19,19 +20,19 @@ const onHide = () => {
     <div
         tabindex="-1"
         aria-hidden="true"
-        class="absolute left-0 top-0 right-0 bottom-0 grid grid-cols-12"
+        class="absolute left-0 top-0 right-0 bottom-0 grid grid-cols-12 h-full"
     >
       <component
-        class="absolute"
-        :is="overlay.component"
-        :key="overlay.key"
-        :style="{
-          zIndex: index + 1
+          class="absolute"
+          :is="overlay.component"
+          :key="overlay.key"
+          :style="{
+        zIndex: index + 1
         }"
-        v-bind="overlay.props"
-        v-for="(overlay, index) in $overlay.stack"
-        v-on="overlay.on"
-        role="dialog"
+          v-bind="overlay.props"
+          v-for="(overlay, index) in overlay.stack"
+          v-on="overlay.on"
+          role="dialog"
       ></component>
     </div>
     <div class="overlay-backdrop"
