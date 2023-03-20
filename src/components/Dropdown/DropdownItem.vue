@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { resolveComponent } from 'vue'
+import { resolveComponent, computed } from 'vue'
 
 defineEmits(['click'])
 
