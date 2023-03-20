@@ -1,5 +1,5 @@
 <template>
-  <div @click="$refs.file.click">
+  <div @click="$refs.file.click" class="cursor-pointer">
     <input type="file" @change="onChange" multiple ref="file" class="hidden">
     <slot name="default" />
   </div>

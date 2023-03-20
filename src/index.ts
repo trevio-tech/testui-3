@@ -5,6 +5,7 @@ export { default as useChat } from './chats/composables/useChat.ts'
 // COMPONENTS //
 ////////////////
 export { default as Alert } from './components/Alert/Alert.vue'
+export { default as Avatar } from './components/Avatar/Avatar.vue'
 export { default as Button } from './components/Button/Button.vue'
 export { default as ImageViewer } from './components/ImageViewer/ImageViewer.vue'
 export { default as InputTags } from './components/InputTags/InputTags.vue'
