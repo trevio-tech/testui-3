@@ -10,6 +10,4 @@ import { NodeViewWrapper, nodeViewProps } from '@tiptap/vue-3'
 import NodeToolbar from '../../NodeToolbar.vue'
 
 const props = defineProps(nodeViewProps)
-
-console.log(props)
 </script>
