@@ -1,12 +1,13 @@
 <template>
   <div @click="$refs.file.click" class="cursor-pointer">
     <input type="file" @change="onChange" multiple ref="file" class="hidden">
-    <slot name="default" />
+    <slot :isLoading="isLoading" />
   </div>
 </template>
 
 <script setup>
 import useQuery from '../../composables/useQuery'
+import { shallowRef } from 'vue'
 
 const emit = defineEmits([
   'start',
@@ -33,6 +34,8 @@ const props = defineProps({
     default: () => []
   },
 })
+
+const isLoading = shallowRef(false)
 
 const onChange = async (event) => {
   const images = event.target.files
@@ -91,6 +94,10 @@ const onChange = async (event) => {
   formData.set('map', JSON.stringify(map))
 
   try {
+    if (isLoading.value) return
+
+    isLoading.value = true
+
     emit('start')
 
     const { data } = await useQuery({
@@ -113,12 +120,12 @@ const onChange = async (event) => {
       emit('update:modelValue', arr)
     }
   } catch (error) {
-    console.log(error)
     if (error?.extensions?.validation) {
       emit('error', error.extensions.validation)
     }
   } finally {
     event.target.value = ''
+    isLoading.value = false
   }
 }
 </script>
