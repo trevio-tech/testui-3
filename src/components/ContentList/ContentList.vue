@@ -23,25 +23,31 @@ const props = defineProps({
     type: String,
     required: true
   },
+  query: {
+    type: String
+  },
+  orderBy: {
+    type: String
+  }
 })
 
 const isLoading = shallowRef(false)
+const isMore = shallowRef(true)
 const items = shallowRef([])
 const page = shallowRef(1)
-const isMore = shallowRef(true)
 
 const getItems = async () => {
+  if (isLoading.value) {
+    return
+  }
+
+  isLoading.value = true
+
   try {
-    if (isLoading.value) {
-      return
-    }
-
-    isLoading.value = true
-
-    const { data: { nestedContent }} = await useQuery({
+    const { data } = await useQuery({
       query: `
-        query nestedContent ($user_id: ID, $travel_id: ID, $page: Int, $limit: Int) {
-          nestedContent(user_id: $user_id, travel_id: $travel_id, page: $page, limit: $limit) {
+        query contentList ($user_id: ID, $travel_id: ID, $page: Int, $limit: Int, $order_by: String) {
+          contentList(user_id: $user_id, travel_id: $travel_id, page: $page, limit: $limit, order_by: $order_by) {
             ${props.fields}
           }
         }
@@ -50,16 +56,24 @@ const getItems = async () => {
         travel_id: props.travelId,
         user_id: props.userId,
         page: page.value,
-        limit: props.limit
+        limit: props.limit,
+        query: props.query,
+        order_by: props.orderBy
       }
     }, {
-      key: `nested-content-${props.travelId || props.userId}`
+      key: `contentList${Date.now()}`,
     })
 
-    isMore.value = nestedContent.length >= props.limit
-    items.value = [...items.value, ...nestedContent]
-    page.value++
-  } catch (error) {}
+    if (data) {
+      isMore.value = data.contentList.length >= props.limit
+      data.contentList.forEach((item) => {
+        items.value.push(item)
+      })
+      page.value++
+    }
+  } catch (errors) {
+    console.log(errors)
+  }
   finally {
     isLoading.value = false
   }

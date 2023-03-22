@@ -28,7 +28,7 @@ const useQuery = async ({ query, variables = {} }, options = {}) => {
     ...options
   })
 
-  if (typeof data.value === 'object' && Object.hasOwn(data.value, 'errors')) {
+  if (data?.value?.errors) {
     throw data.value.errors
   }
 
