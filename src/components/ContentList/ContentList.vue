@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <ClientOnly>
     <slot :items="items" :isMore="isMore" :isLoading="isLoading" :onFetch="getItems" />
-  </div>
+  </ClientOnly>
 </template>
 
 <script setup>
-import { shallowRef } from 'vue'
-import { useQuery } from '../../index'
+import { shallowRef, onBeforeMount } from 'vue'
+import useQuery2 from '../../composables/useQuery2'
 
 const props = defineProps({
   travelId: {
@@ -44,7 +44,7 @@ const getItems = async () => {
   isLoading.value = true
 
   try {
-    const { data } = await useQuery({
+    const { contentList } = await useQuery2({
       query: `
         query contentList ($user_id: ID, $travel_id: ID, $page: Int, $limit: Int, $order_by: String) {
           contentList(user_id: $user_id, travel_id: $travel_id, page: $page, limit: $limit, order_by: $order_by) {
@@ -64,13 +64,11 @@ const getItems = async () => {
       key: `contentList${Date.now()}`,
     })
 
-    if (data) {
-      isMore.value = data.contentList.length >= props.limit
-      data.contentList.forEach((item) => {
-        items.value.push(item)
-      })
-      page.value++
-    }
+    isMore.value =contentList.length >= props.limit
+    contentList.forEach((item) => {
+      items.value.push(item)
+    })
+    page.value++
   } catch (errors) {
     console.log(errors)
   }
@@ -78,6 +76,5 @@ const getItems = async () => {
     isLoading.value = false
   }
 }
-
-await getItems()
+getItems()
 </script>
