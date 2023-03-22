@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot :items="items" :isMore="isMore" :onFetch="getItems" />
+    <slot :items="items" :isMore="isMore" :isLoading="isLoading" :onFetch="getItems" />
   </div>
 </template>
 
@@ -57,5 +57,5 @@ const getItems = async () => {
   }
 }
 
-await getItems()
+getItems()
 </script>
