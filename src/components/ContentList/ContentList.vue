@@ -19,7 +19,7 @@ const props = defineProps({
     type: Number,
     default: 10
   },
-  query: {
+  fields: {
     type: String,
     required: true
   },
@@ -38,8 +38,14 @@ const getItems = async () => {
 
     isLoading.value = true
 
-    const { data: { userContent }} = await useQuery({
-      query: props.query,
+    const { data: { nestedContent }} = await useQuery({
+      query: `
+        query nestedContent ($user_id: ID, $travel_id: ID, $page: Int, $limit: Int) {
+          nestedContent(user_id: $user_id, travel_id: $travel_id, page: $page, limit: $limit) {
+            ${props.fields}
+          }
+        }
+      `,
       variables: {
         travel_id: props.travelId,
         user_id: props.userId,
@@ -48,8 +54,8 @@ const getItems = async () => {
       }
     })
 
-    isMore.value = userContent.length >= props.limit
-    items.value = [...items.value, ...userContent]
+    isMore.value = nestedContent.length >= props.limit
+    items.value = [...items.value, ...nestedContent]
     page.value++
   } catch (error) {}
   finally {
