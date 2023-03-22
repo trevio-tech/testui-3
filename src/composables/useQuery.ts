@@ -5,11 +5,6 @@ const useQuery = async ({ query, variables = {} }, options = {}) => {
 
   const isFormData = query instanceof FormData
 
-  const headers = {
-    Accept: 'application/json',
-    Authorization: $auth.strategy.token.get(),
-  }
-
   let body = query
 
   if (! isFormData) {
@@ -21,9 +16,14 @@ const useQuery = async ({ query, variables = {} }, options = {}) => {
     }
   }
 
+  options.method = 'POST'
+
   const { data, refresh, pending } = await useFetch($config.public.GRAPHQL_URL, {
-    method: 'POST',
-    headers,
+    onRequest({ options }) {
+      options.headers = options.headers || {}
+      options.headers.Accept = 'application/json'
+      options.headers.Authorization = $auth.strategy.token.get()
+    },
     body,
     ...options
   })

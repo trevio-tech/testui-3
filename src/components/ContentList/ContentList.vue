@@ -52,6 +52,8 @@ const getItems = async () => {
         page: page.value,
         limit: props.limit
       }
+    }, {
+      key: `nested-content-${props.travelId || props.userId}`
     })
 
     isMore.value = nestedContent.length >= props.limit
@@ -63,5 +65,5 @@ const getItems = async () => {
   }
 }
 
-getItems()
+await getItems()
 </script>
