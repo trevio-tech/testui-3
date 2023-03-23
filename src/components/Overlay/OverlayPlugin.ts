@@ -23,7 +23,7 @@ export default {
 
         if (document.body.scrollHeight > window.innerHeight) {
           document.body.style.paddingRight = '17px'
-          document.body.style.marginRight = '-17px'
+
         }
       }
     }
@@ -34,7 +34,6 @@ export default {
       if (stack.length === 0) {
         document.body.style.overflow = ''
         document.body.style.paddingRight = ''
-        document.body.style.marginRight = ''
       }
     }
 

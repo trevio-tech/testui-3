@@ -12,7 +12,7 @@
     <img
       :alt="alt"
       :src="modelValue"
-      class="rounded-full"
+      class="rounded-full w-full"
       crossorigin="anonymous"
       @load="emits('load', $event)"
     >

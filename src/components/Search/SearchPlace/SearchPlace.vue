@@ -114,7 +114,7 @@ const onSelect = async (place) => {
 const onChange = debounce(async (event) => {
   try {
     if (event.target.value.length > 0) {
-      const { data: { searchPlaces } } = useQuery({
+      const { data: { searchPlaces } } = await useQuery({
         query: `
           query ($query: String!, $search_by: [String]) {
             searchPlaces(query: $query, search_by: $search_by) {
