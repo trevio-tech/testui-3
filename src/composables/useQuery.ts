@@ -1,4 +1,4 @@
-import { useNuxtApp, useFetch } from 'nuxt/app'
+import { useNuxtApp } from 'nuxt/app'
 
 const useQuery = async ({ query, variables = {} }, options = {}) => {
   const { $auth, $config } = useNuxtApp()
@@ -10,15 +10,15 @@ const useQuery = async ({ query, variables = {} }, options = {}) => {
   if (! isFormData) {
     body = {
       query: query
-        .trim()
-        .replaceAll(/\s+/ig, ' '),
+          .trim()
+          .replaceAll(/\s+/ig, ' '),
       variables
     }
   }
 
   options.method = 'POST'
 
-  const { data, refresh, pending } = await useFetch($config.public.GRAPHQL_URL, {
+  const { data, refresh, pending } = await $fetch($config.public.GRAPHQL_URL, {
     onRequest({ options }) {
       options.headers = options.headers || {}
       options.headers.Accept = 'application/json'
@@ -29,11 +29,12 @@ const useQuery = async ({ query, variables = {} }, options = {}) => {
   })
 
   if (data?.value?.errors) {
+    console.log(data?.value?.errors)
     throw data.value.errors
   }
 
   return {
-    ...data.value,
+    data,
     refresh,
     pending
   }

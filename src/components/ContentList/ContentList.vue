@@ -6,7 +6,7 @@
 
 <script setup>
 import { shallowRef, onBeforeMount } from 'vue'
-import useQuery2 from '../../composables/useQuery2'
+import useQuery from '../../composables/useQuery'
 
 const props = defineProps({
   travelId: {
@@ -44,7 +44,7 @@ const getItems = async () => {
   isLoading.value = true
 
   try {
-    const { contentList } = await useQuery2({
+    const { data: { contentList }} = await useQuery({
       query: `
         query contentList ($user_id: ID, $travel_id: ID, $page: Int, $limit: Int, $order_by: String) {
           contentList(user_id: $user_id, travel_id: $travel_id, page: $page, limit: $limit, order_by: $order_by) {
@@ -60,11 +60,9 @@ const getItems = async () => {
         query: props.query,
         order_by: props.orderBy
       }
-    }, {
-      key: `contentList${Date.now()}`,
     })
 
-    isMore.value =contentList.length >= props.limit
+    isMore.value = contentList.length >= props.limit
     contentList.forEach((item) => {
       items.value.push(item)
     })
