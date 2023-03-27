@@ -1,7 +1,7 @@
 <template>
   <div @click="$refs.file.click" class="cursor-pointer">
     <input type="file" @change="onChange" multiple ref="file" class="hidden">
-    <slot :isLoading="isLoading" />
+    <slot :isUploading="isUploading" />
   </div>
 </template>
 
@@ -35,7 +35,7 @@ const props = defineProps({
   },
 })
 
-const isLoading = shallowRef(false)
+const isUploading = shallowRef(false)
 
 const onChange = async (event) => {
   const images = event.target.files
@@ -94,9 +94,9 @@ const onChange = async (event) => {
   formData.set('map', JSON.stringify(map))
 
   try {
-    if (isLoading.value) return
+    if (isUploading.value) return
 
-    isLoading.value = true
+    isUploading.value = true
 
     emit('start')
 
@@ -125,7 +125,7 @@ const onChange = async (event) => {
     }
   } finally {
     event.target.value = ''
-    isLoading.value = false
+    isUploading.value = false
   }
 }
 </script>

@@ -1,13 +1,15 @@
 <template>
-  <div class="relative">
+  <div class="relative rounded-full">
     <Upload
       v-if="editable"
-      class="absolute right-0 top-0 bg-white p-1 rounded-full w-8 h-8 shadow"
+      class="absolute right-0 top-0 bg-white p-1 rounded-full w-8 h-8 shadow overflow-hidden"
       style="margin: 5% 5% 0 0"
       mutation-name="uploadAvatar"
+      v-slot="{ isUploading }"
       @update:modelValue="emits('update:modelValue', $event)"
     >
       <UploadCloud />
+      <Loader v-if="isUploading" />
     </Upload>
     <img
       :alt="alt"
@@ -20,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { Upload } from '../../index'
+import { Upload, Loader } from '../../index'
 import { UploadCloud } from 'lucide-vue-next'
 
 interface Props {
