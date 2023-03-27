@@ -7,9 +7,9 @@
     @click="onClick($event)"
   >
     <Loader v-if="loading" />
-    <slot v-if="hasPrependSlot" name="prepend"></slot>
+    <slot v-if="hasPrependSlot && !loading" name="prepend"></slot>
     <span :style="{visibility: loading ? 'hidden' : 'visible'}"><slot></slot></span>
-    <slot v-if="hasAppendSlot" name="append"></slot>
+    <slot v-if="hasAppendSlot && !loading" name="append"></slot>
   </button>
 </template>
 
