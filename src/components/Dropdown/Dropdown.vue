@@ -4,7 +4,7 @@
       <slot :isActive="isActive"></slot>
     </div>
     <div ref="popper" class="popper absolute z-10 left-0 top-0" style="display: none">
-      <div class="bg-white rounded-lg shadow-sm inline-block overflow-hidden p-1 ring-1 ring-slate-100">
+      <div class="bg-white rounded-lg shadow overflow-hidden p-1 ring-1 ring-slate-200">
         <slot name="popper" :hide="hide"></slot>
       </div>
     </div>

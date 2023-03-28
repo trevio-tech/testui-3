@@ -4,7 +4,7 @@
     :to="to"
     :type="as === 'button' ? 'button' : undefined"
     v-bind="$attrs"
-    class="flex items-center bg-white w-full text-left py-2 px-3 hover:bg-sky-100 cursor-pointer rounded-lg"
+    class="flex items-center bg-white w-full text-left py-2 px-3 hover:bg-stone-100 cursor-pointer rounded-lg"
     @click="$emit('click')"
   >
     <span v-if="hasPrependSlot" class="mr-3"><slot name="prepend" /></span>
