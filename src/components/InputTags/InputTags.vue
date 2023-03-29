@@ -153,7 +153,7 @@ const onSelect = async (tags) => {
 
 const onInput = debounce(async (event) => {
   if (event.target.value.length > 0) {
-    const { data } = useQuery({
+    const { data } = await useQuery({
       query: props.searchMutation,
       variables: {
         query: event.target.value
