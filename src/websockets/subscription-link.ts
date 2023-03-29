@@ -5,12 +5,11 @@ import type {
   NextLink,
   FetchResult,
   RequestHandler,
-} from "@apollo/client/core";
+} from '@apollo/client/core'
 
-import type Echo from "laravel-echo";
+import type Echo from 'laravel-echo'
 
-import type { PresenceChannel, Channel } from "laravel-echo/dist/channel";
-import { OperationDefinitionNode, FieldNode } from "graphql";
+import type { PresenceChannel, Channel } from 'laravel-echo/dist/channel'
 
 // The presence channel interface does not have the channel methods,
 // but in reality the actual object does, so I try to fix this here.
@@ -23,7 +22,7 @@ function subscribeToEcho(
 ) {
   const channel = echoClient.private(channelName.replace(/^private-/, '')) as FixedEchoChannel;
 
-  channel.listen(".lighthouse-subscription", (result: { result: any }) => {
+  channel.listen('.lighthouse-subscription', (result: { result: any }) => {
     observer.next(result.result)
   });
 }
@@ -42,14 +41,7 @@ function createSubscriptionHandler(
     setChannelName: (name: string) => any
 ) {
   return (data: FetchResult) => {
-    const operationDefinition: OperationDefinitionNode = operation.query.definitions.find(definitionNode => definitionNode.kind === "OperationDefinition") as OperationDefinitionNode
-    const fieldNode: FieldNode = operationDefinition.selectionSet.selections.find(definitionNode => definitionNode.kind === "Field") as FieldNode
-    const subscriptionName: string | null = fieldNode.name.value;
-    const lighthouseVersion = data?.extensions?.lighthouse_subscriptions?.version;
-
-    const channelName: string | null = lighthouseVersion == 2 ?
-        data?.extensions?.lighthouse_subscriptions?.channel :
-        data?.extensions?.lighthouse_subscriptions?.channels?.[subscriptionName];
+    const channelName: string | null = data?.extensions?.lighthouse_subscriptions?.channel;
 
     if (channelName) {
       setChannelName(channelName);

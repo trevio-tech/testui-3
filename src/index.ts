@@ -7,6 +7,7 @@ export { default as useChat } from './chats/composables/useChat.ts'
 export { default as Alert } from './components/Alert/Alert.vue'
 export { default as Avatar } from './components/Avatar/Avatar.vue'
 export { default as Button } from './components/Button/Button.vue'
+export { default as ChatForm } from './components/Chat/ChatForm.vue'
 export { default as ContentList } from './components/ContentList/ContentList.vue'
 
 // Dropdown

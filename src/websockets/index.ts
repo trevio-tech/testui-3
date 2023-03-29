@@ -15,8 +15,8 @@ export default (nuxtApp) => {
     wsHost: WEBSOCKETS_HOST || '127.0.0.1',
     wsPort: 6001,
     cluster: 'mt1',
-    forceTLS: false,
-    encrypted: true,
+    disableStats: true,
+    enabledTransports: ['ws'],
     authEndpoint: `${GRAPHQL_URL}/subscriptions/auth`,
     auth: {
       headers: {
@@ -34,7 +34,7 @@ export default (nuxtApp) => {
       createLighthouseSubscriptionLink(echo),
       createHttpLink({
         uri: GRAPHQL_URL,
-      })
+      }),
     ]),
     cache: new InMemoryCache(),
   })
