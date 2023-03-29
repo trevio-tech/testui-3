@@ -14,6 +14,7 @@ export { default as Dropdown } from './components/Dropdown/Dropdown.vue'
 export { default as DropdownItem } from './components/Dropdown/DropdownItem.vue'
 
 export { default as ImageViewer } from './components/ImageViewer/ImageViewer.vue'
+export { default as Input } from './components/Input/Input.vue'
 export { default as InputTags } from './components/InputTags/InputTags.vue'
 export { default as Like } from './components/Like/Like.vue'
 export { default as Loader } from './components/Loader/Loader.vue'
