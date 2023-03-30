@@ -46,6 +46,11 @@ export { default as useQuery } from './composables/useQuery.ts'
 ////////////////
 export { default as RippleDirective } from './directives/ripple'
 
+/////////////
+// PLUGINS //
+/////////////
+export { default as ToastifyPlugin } from './plugins/toastify'
+
 ///////////
 // UTILS //
 ///////////
