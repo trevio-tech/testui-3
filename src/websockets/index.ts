@@ -16,7 +16,6 @@ export default (nuxtApp) => {
     wsPort: 6001,
     cluster: 'mt1',
     disableStats: true,
-    enabledTransports: ['ws'],
     authEndpoint: `${GRAPHQL_URL}/subscriptions/auth`,
     auth: {
       headers: {
