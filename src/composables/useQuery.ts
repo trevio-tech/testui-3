@@ -18,7 +18,7 @@ const useQuery = async ({ query, variables = {} }, options = {}) => {
 
   options.method = 'POST'
 
-  const { data, errors, refresh, pending } = await $fetch($config.public.GRAPHQL_URL, {
+  const { data, errors } = await $fetch($config.public.GRAPHQL_URL, {
     onRequest({ options }) {
       options.headers = options.headers || {}
       options.headers.Accept = 'application/json'
@@ -34,8 +34,6 @@ const useQuery = async ({ query, variables = {} }, options = {}) => {
 
   return {
     data,
-    refresh,
-    pending
   }
 }
 

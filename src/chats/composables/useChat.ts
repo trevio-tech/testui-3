@@ -1,5 +1,5 @@
 import useQuery from '../../composables/useQuery'
-import { groupBy } from 'lodash-es'
+import { groupBy } from 'lodash'
 import { ref } from 'vue'
 
 const stacks = ref({})

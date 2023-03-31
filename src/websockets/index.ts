@@ -7,15 +7,19 @@ export default (nuxtApp) => {
   window.Pusher = Pusher
 
   const GRAPHQL_URL = nuxtApp.$config.public.GRAPHQL_URL
+  const WEBSOCKETS_APP_KEY = nuxtApp.$config.public.WEBSOCKETS_APP_KEY
   const WEBSOCKETS_HOST = nuxtApp.$config.public.WEBSOCKETS_HOST
+
+  console.log(WEBSOCKETS_HOST)
 
   const echo = new Echo({
     broadcaster: 'pusher',
-    key: 'soketi',
-    wsHost: WEBSOCKETS_HOST || '127.0.0.1',
+    key: WEBSOCKETS_APP_KEY,
+    wsHost: WEBSOCKETS_HOST,
     wsPort: 6001,
     cluster: 'mt1',
-    disableStats: true,
+    forceTLS: false,
+    encrypted: true,
     authEndpoint: `${GRAPHQL_URL}/subscriptions/auth`,
     auth: {
       headers: {
