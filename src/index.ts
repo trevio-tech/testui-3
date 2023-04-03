@@ -28,6 +28,9 @@ export { default as useOverlay } from './components/Overlay/useOverlay.ts'
 export { default as usePlaceSeo } from './components/Places/composables/usePlaceSeo'
 export * from './components/Search'
 export { default as useShotEditor } from './components/Shots/useShotEditor'
+
+export { default as SkeletonLoader } from './components/SkeletonLoader/SkeletonLoader.vue'
+
 export { default as SubscriptionButton } from './components/Subscriptions/SubscriptionButton.vue'
 export { useSubscriptionsStore } from './components/Subscriptions/store'
 export { default as TipTap } from './components/TipTap/TipTap.vue'
