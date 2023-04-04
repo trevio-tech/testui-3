@@ -10,22 +10,25 @@ export default {
         attributes.on = {};
       }
 
-      const overlay = {
-        key: Math.random().toString(36).substring(2),
-        component: markRaw(component),
-        ...attributes
-      }
-
-      stack.push(overlay)
-
-      if (stack.length > 0) {
-        document.body.style.overflow = 'hidden'
-
-        if (document.body.scrollHeight > window.innerHeight) {
-          document.body.style.paddingRight = '17px'
-
+      return new Promise((resolve) => {
+        const overlay = {
+          key: Math.random().toString(36).substring(2),
+          component: markRaw(component),
+          ...attributes
         }
-      }
+
+        stack.push(overlay)
+
+        if (stack.length > 0) {
+          document.body.style.overflow = 'hidden'
+
+          if (document.body.scrollHeight > window.innerHeight) {
+            document.body.style.paddingRight = '17px'
+          }
+        }
+
+        resolve()
+      })
     }
 
     const hide = () => {
