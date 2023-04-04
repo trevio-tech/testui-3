@@ -11,8 +11,8 @@ export { default as ChatForm } from './components/Chat/ChatForm.vue'
 export { default as ContentList } from './components/ContentList/ContentList.vue'
 
 // Dropdown
-export { default as Dropdown } from './components/Dropdown/Dropdown.vue'
-export { default as DropdownItem } from './components/Dropdown/DropdownItem.vue'
+export { default as DropdownMenu } from './components/DropdownMenu/DropdownMenu.vue'
+export { default as DropdownMenuItem } from './components/DropdownMenu/DropdownMenuItem.vue'
 
 export { default as ImageViewer } from './components/ImageViewer/ImageViewer.vue'
 export { default as Input } from './components/Input/Input.vue'
