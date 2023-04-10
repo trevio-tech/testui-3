@@ -30,7 +30,7 @@ export { default as usePlaceSeo } from './components/Places/composables/usePlace
 export * from './components/Search'
 export { default as useShotEditor } from './components/Shots/useShotEditor'
 
-export { default as SkeletonLoader } from './components/SkeletonLoader/SkeletonLoader.vue'
+export { default as Skeleton } from './components/Skeleton/Skeleton.vue'
 
 export { default as SubscriptionButton } from './components/Subscriptions/SubscriptionButton.vue'
 export { useSubscriptionsStore } from './components/Subscriptions/store'
