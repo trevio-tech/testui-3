@@ -13,8 +13,10 @@
 <script setup>
 import { useNuxtApp } from 'nuxt/app'
 import { defineAsyncComponent, ref, watch } from 'vue'
+import { useOverlay } from '../index'
 
-const { $auth, $overlay } = useNuxtApp()
+const overlay = useOverlay()
+const { $auth } = useNuxtApp()
 const pointerEvents = ref($auth.loggedIn ? 'auto' : 'none')
 
 watch(() => $auth.loggedIn, (loggedIn) => {
@@ -24,7 +26,7 @@ watch(() => $auth.loggedIn, (loggedIn) => {
 const onClick = async () => {
   if (! $auth.loggedIn) {
 
-    $overlay.show(
+    overlay.show(
         defineAsyncComponent(() => import('~/components/modules/users/components/Auth/LoginRegisterDialog.vue'))
     )
   }

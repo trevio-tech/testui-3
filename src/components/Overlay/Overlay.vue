@@ -1,7 +1,9 @@
 <script setup>
-import { computed } from 'vue'
 import useOverlay from './useOverlay.ts'
+import { computed } from 'vue'
+import { useRouter } from 'nuxt/app'
 
+const router = useRouter()
 const overlay = useOverlay()
 
 const count = computed(() => overlay.stack.length)
@@ -13,6 +15,8 @@ const onHide = () => {
 
   overlay.hide()
 }
+
+router.beforeEach(() => overlay.hide())
 </script>
 
 <template>
