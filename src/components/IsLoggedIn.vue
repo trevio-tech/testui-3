@@ -27,7 +27,7 @@ const onClick = async () => {
   if (! $auth.loggedIn) {
 
     overlay.show(
-        defineAsyncComponent(() => import('~/components/modules/users/components/Auth/LoginRegisterDialog.vue'))
+        defineAsyncComponent(() => import('~/components/users/components/Authentication/LoginRegisterDialog.vue'))
     )
   }
 }
