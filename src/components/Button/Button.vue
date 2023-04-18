@@ -1,9 +1,9 @@
 <template>
   <button
+    v-ripple
     :class="classes"
     :type="type"
     :disabled="disabled || loading"
-    v-ripple
     @click="onClick($event)"
   >
     <Loader v-if="loading" />
