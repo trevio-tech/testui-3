@@ -1,0 +1,15 @@
+
+
+.input {
+  @apply border relative w-full rounded-lg text-sm p-2 h-10 flex items-center focus:outline-none focus:ring-4 disabled:opacity-75 transition duration-100 ease-in-out;
+  box-shadow: inset 0 2px rgb(0 0 0 / 4%);
+}
+.input-default {
+  @apply border-slate-200 focus:ring-blue-100 focus:border-blue-200;
+}
+.input-danger {
+  @apply border-red-200 focus:ring-red-200 focus:border-red-300;
+}
+.input-success {
+  @apply border-green-200 focus:ring-green-300;
+}

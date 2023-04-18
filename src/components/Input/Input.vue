@@ -23,6 +23,7 @@
 </template>
 
 <script setup>
+import './styles.scss'
 import { computed, useSlots } from 'vue'
 
 const emit = defineEmits([
