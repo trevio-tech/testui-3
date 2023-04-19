@@ -9,8 +9,8 @@
       class="fixed z-50 top-0 left-0 w-full h-full flex items-center justify-center"
       style="background-color: rgba(0,0,0,.4)"
     >
-      <div class="p-10 overflow-hidden w-full h-full">
-        <div class="p-4 bg-black/75 rounded-lg h-full relative">
+      <div class="p-4 xl:p-10 overflow-hidden w-full h-full">
+        <div class="p-2 xl:p-4 bg-black/75 rounded-lg h-full relative">
           <swiper
             ref="target"
             :modules="[Zoom]"
