@@ -27,8 +27,11 @@
               </div>
             </swiper-slide>
           </swiper>
-          <div class="absolute top-0 right-0 p-6 z-10">
+          <div class="absolute top-0 p-4 right-0 xl:p-6 z-10 flex items-center">
             <div class="bg-black/50 py-1 px-3 rounded-full text-white text-sm">{{ active + 1 }} из {{ images.length }}</div>
+            <button v-if="closable" type="button" class="ml-4 xl:ml-6">
+              <X class="w-5 h-5 text-white" />
+            </button>
           </div>
         </div>
       </div>
@@ -44,6 +47,7 @@ import { Zoom } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { X } from 'lucide-vue-next'
 
 const props = defineProps({
   text: {
@@ -52,6 +56,9 @@ const props = defineProps({
   selector: {
     type: String,
     default: 'img'
+  },
+  closable: {
+    type: Boolean
   }
 })
 
