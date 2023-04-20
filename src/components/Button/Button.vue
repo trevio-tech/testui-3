@@ -62,14 +62,14 @@ export default {
     },
     classes() {
       const variants = {
-        primary:    'text-white bg-primary enabled:hover:bg-primary-dark focus:ring-primary-light focus:ring-4',
+        primary:    'text-white bg-sky-400 enabled:hover:bg-sky-500 focus:ring-sky-200 focus:ring-4',
         secondary:  'text-black border border-gray-lightest enabled:hover:bg-gray-lightest',
         danger:     'text-white bg-red enabled:hover:bg-red-dark focus:ring-red-light focus:ring-4',
         success:    'text-white bg-green enabled:hover:bg-green-dark focus:ring-green-light focus:ring-4',
       };
 
       return {
-        'relative font-medium rounded-lg text-sm px-5 h-[42px] focus:outline-none disabled:opacity-75 transition duration-100 ease-in-out"': true,
+        'relative font-medium rounded-lg text-sm px-5 h-[42px] focus:outline-none disabled:opacity-75 transition duration-100 ease-in-out': true,
         [variants[this.variant]]: true,
         'flex items-center space-x-2': this.hasAppendSlot || this.hasPrependSlot
       }
