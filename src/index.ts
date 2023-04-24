@@ -1,3 +1,5 @@
+export * from './components'
+
 // Chats
 export { default as useChat } from './chats/composables/useChat.ts'
 
