@@ -35,6 +35,7 @@ export { default as Skeleton } from './components/Skeleton/Skeleton.vue'
 
 export { default as SubscriptionButton } from './components/Subscriptions/SubscriptionButton.vue'
 export { useSubscriptionsStore } from './components/Subscriptions/store'
+export { default as Textarea } from './components/Textarea/Textarea.vue'
 export { default as TipTap } from './components/TipTap/TipTap.vue'
 export { default as Upload } from './components/Upload/Upload.vue'
 export { default as IsLoggedIn } from './components/IsLoggedIn.vue'
