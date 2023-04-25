@@ -3,7 +3,6 @@
     <Upload
       v-if="editable"
       class="absolute right-0 top-0 bg-white p-1 rounded-full w-8 h-8 shadow overflow-hidden"
-      style="margin: 5% 5% 0 0"
       mutation-name="uploadAvatar"
       v-slot="{ isUploading }"
       @update:modelValue="emits('update:modelValue', $event)"

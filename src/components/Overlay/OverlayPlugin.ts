@@ -1,9 +1,14 @@
 import { reactive, markRaw, watch } from 'vue'
+import { useBreakpoints } from '@vueuse/core'
 
 export default {
   install: (app) => {
     let stack = reactive([])
     let eventListenerAdded = false;
+
+    const breakpoints = useBreakpoints({
+      laptop: 1024,
+    })
 
     const show = (component, attributes = {on: {}, props: {}}) => {
       if (! attributes?.on) {
@@ -22,7 +27,7 @@ export default {
         if (stack.length > 0) {
           document.body.style.overflow = 'hidden'
 
-          if (document.body.scrollHeight > window.innerHeight) {
+          if (document.body.scrollHeight > window.innerHeight && breakpoints.greater('laptop').value) {
             document.body.style.paddingRight = '17px'
           }
         }
