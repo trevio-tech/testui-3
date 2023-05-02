@@ -1,5 +1,6 @@
 export * from './components'
 export * from './bookmarks'
+export * from './shots'
 
 // Chats
 export { default as useChat } from './chats/composables/useChat.ts'

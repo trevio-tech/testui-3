@@ -1,0 +1,1 @@
+export { useShotsStore } from './store'

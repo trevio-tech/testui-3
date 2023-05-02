@@ -39,7 +39,7 @@ const objectCommonOptions = {
 
 let canvas = null
 
-const createShotEditor = () => {
+const createShotEditor = ({ width = 480, height = 840} = {}) => {
   onMounted(() => {
     canvas = window.shotEditor = new fabric.Canvas('shot', {
       backgroundColor : '#fff',
@@ -50,8 +50,8 @@ const createShotEditor = () => {
 
     console.log('ShotEditor: Initialization')
 
-    canvas.setWidth(480)
-    canvas.setHeight(840)
+    canvas.setWidth(width)
+    canvas.setHeight(height)
 
     setRandomBackgroundGradient()
 
