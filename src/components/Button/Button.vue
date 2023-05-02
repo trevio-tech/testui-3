@@ -69,7 +69,7 @@ export default {
       };
 
       return {
-        'relative font-medium rounded-lg text-sm px-5 h-[42px] focus:outline-none disabled:opacity-75 transition duration-100 ease-in-out': true,
+        'relative font-medium rounded-lg text-sm px-4 h-[42px] focus:outline-none disabled:opacity-75 transition duration-100 ease-in-out': true,
         [variants[this.variant]]: true,
         'flex items-center space-x-2': this.hasAppendSlot || this.hasPrependSlot
       }
